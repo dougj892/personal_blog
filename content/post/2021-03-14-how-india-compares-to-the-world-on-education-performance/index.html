@@ -1,0 +1,54 @@
+---
+title: "How India Compares to the World on Education Performance"
+author: ''
+date: '2021-03-14'
+slug: []
+draft: yes
+categories: []
+tags: []
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Researchers at the World Bank recently released an excellent new dataset on learning outcomes by country.The dataset is <a href="https://datacatalog.worldbank.org/dataset/harmonized-learning-outcomes-hlo-database">here</a> and a journal article describing the dataset is <a href="https://www.nature.com/articles/s41586-021-03323-7">here</a>. This is the first dataset on learning outcomes (rather than educational attainment) which includes most low income countries. (Hanushek and Woesmann created a cross country dataset on learning outcomes some time back but it only included 77 countries.)</p>
+<div id="how-does-india-compare-to-other-countries-on-learning-outcomes" class="section level1">
+<h1>How does India compare to other countries on learning outcomes?</h1>
+<p>I was curious to see how India does compared to other countries in the HLO dataset. The HLO dataset reports HLOs by subject and year so I first calculated the mean HLO for the most recent year data was available for each country and merged in data on GDP per capita from the World Bank. The figure below plots mean HLO for most recent year available versus log GDP per capita for each country in the dataset. It seems like India does about as well as would be expected given its level of income.</p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="how-reliable-is-the-hlo-value-for-india" class="section level1">
+<h1>How reliable is the HLO value for India?</h1>
+<p>The HLO dataset is fantastic but to generate comparable data for so many countries the creators of the dataset had to rely on</p>
+<ul>
+<li>mention that averaging ASER scores is a bad idea but we are just going for a very rough sense of whether this makes sense</li>
+</ul>
+<p>The HLO value for India relies entirely on one assessment: the 2009 PISA. In 2009, two states in India, HP and Tamil Nadu, participated in the PISA assessment. The two states combined ranked almost dead last when compared to other countries which took the PISA that year and thus the exercise was not repeated. (India had planned on participating in the 2021 PISA but I imagine those plans have been scrapped. Only schools in Chandigarh and KVs and NVs in the rest of the country would have participated anyway so it wouldn’t have been very informative anyway.)</p>
+<p>There are several issues with using the 2009 PISA to compare India with other countries. First, the data is quite old and ASER data show a significant decline in learning outcomes from 2009 on. Second, PISA uses school-based sampling of 15 year-olds. Since many 15 year-olds in many developing countries are no longer in school, and dropout rates vary by country, comparisons which rely on enrolled students of this age may reflect the differences in who stays in school rather than differences in learning outcomes for the entire population. Third, students in HP and Tamil Nadu may not be representative of the entire country.</p>
+<p>The most obvious issue, and the one that probably caught most readers’ attention above, is that HP and Tamil Nadu are not necessarily representative of the rest of the country.</p>
+<pre class="r"><code>library(haven)
+ihds_ind_dir &lt;- &quot;C:/Users/dougj/Documents/Data/IHDS/IHDS 2012/DS0001&quot;
+ind_file &lt;- file.path(ihds_ind_dir, &quot;36151-0001-Data.dta&quot;)
+
+# read in just those variables that i need
+ihds &lt;- read_dta(ind_file, col_select = c(STATEID, HHID, HHSPLITID, PERSONID, WT, RO3, RO7, RO5, URBAN2011, starts_with(&quot;CS&quot;), starts_with(&quot;TA&quot;), starts_with(&quot;ED&quot;)))
+
+# drop the one row with missing values for weights
+ihds &lt;- ihds %&gt;% filter(!is.na(WT))
+
+# create variable for whether children have attained the top score on the ASER reading and math assessments
+ihds &lt;- ihds %&gt;% mutate(reading = (TA8B ==4), math = (TA9B == 4)) %&gt;% mutate(State = as_factor(STATEID))
+
+# Look at the difference between urban and rural average scores by state
+urb_rural_diff &lt;- ihds %&gt;% group_by(State, URBAN2011) %&gt;% 
+  summarize(reading = weighted.mean(TA8B, WT, na.rm = TRUE), 
+            math = weighted.mean(TA9B, WT, na.rm = TRUE)) %&gt;% pivot_wider(id_cols = State, names_from = &quot;URBAN2011&quot;, values_from = c(&quot;reading&quot;, &quot;math&quot;)) %&gt;% 
+  mutate(urb_diff_read = reading_1 - reading_0, urb_diff_math = math_1 - math_0)</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;State&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code># Look at the average of all students in TN and HP versus the rest of the country
+tn_hp &lt;- ihds %&gt;% 
+  mutate(pisa_samp = (State == &quot;Tamil Nadu 33&quot; | State == &quot;Himachal Pradesh 02&quot;)) %&gt;% 
+  group_by(pisa_samp) %&gt;% 
+  summarize(reading = weighted.mean(TA8B, WT, na.rm = TRUE), 
+            math = weighted.mean(TA9B, WT, na.rm = TRUE)) </code></pre>
+</div>
