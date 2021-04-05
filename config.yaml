@@ -14,7 +14,7 @@ pygmentsCodefencesGuessSyntax: yes
 hasCJKLanguage: yes
 paginate: 5
 disqusShortname: ''
-googleAnalytics: ''
+googleAnalytics: 'UA-1723694-2'
 copyright: ''
 author:
   name: Doug Johnson
