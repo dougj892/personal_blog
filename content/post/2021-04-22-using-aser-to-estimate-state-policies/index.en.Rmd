@@ -1,0 +1,32 @@
+---
+title: Using ASER to estimate state policies
+author: ''
+date: '2021-04-21'
+slug: []
+bibliography: ../sampling.bib
+draft: true
+categories: []
+tags: 
+  - education
+---
+
+In a recent article (soon to be published in the International Journal of Educational Development), Andres Parrado and I take a look at the two main sources of learning outcomes data in India -- NAS and ASER -- and conclude that a) NAS data is (most likely) completely unreliable and b) ASER data, while reliable, is a bit noisy. 
+
+The implications for people considering using NAS data are pretty clear -- you **shouldn't**. For ASER, the implications are a bit more murky. In the paper, we say that analysts should probably avoid using ASER data at the district level (which the ASER Centre already recommended) and that they should be careful about comparing year-on-year changes between states. One topic we didn't really touch is whether ASER data can be used to evaluate the impact of state-level policies. This is a tough question to answer because it depends not just on the level of noise in the ASER data but also on the methodology used and other aspects of the data. 
+
+One way to figure out whether ASER can be used to evaluate state-level policies is to take a stab at using it to evaluate state-level policies (using methods that are robust to noise) and see if standard errors around the estimates are informative.
+
+--> insert main results here
+
+# Estimating the effect of private schools on learning
+
+There have been a *lot* of studies which estimate the effect of private schools on learning. [@singh2015private]
+
+# References
+
+
+
+
+
+
+

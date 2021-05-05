@@ -8,13 +8,6 @@ tags:
   - Econometrics
 ---
 
----
-layout: post
-title:  "Multiple Hypothesis Testing"
-date:   2016-07-04 10:40:48 -0400
-categories: jekyll update
----
-
 This week, I volunteered to read and summarize one of the articles for IDinsigh's tech team's book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is "Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects" by Michael Anderson.  You can find an ungated version of the article [here](http://ist-socrates.berkeley.edu/~raphael/IGERT/Workshop/Anderson%20Preschool.pdf).  
 
 Since not everyone at IDinsight has time to participate in these calls and I tend to forget anything that I don't write down I thought I'd do a blog post on the article.  I'm not going to summarize the article itself, but rather just the key takeaways. 

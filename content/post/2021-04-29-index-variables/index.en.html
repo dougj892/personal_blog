@@ -1,0 +1,43 @@
+---
+title: Index variables
+author: ''
+date: '2021-04-29'
+slug: []
+draft: true
+categories: []
+tags: []
+lastmod: '2021-04-29T09:02:50+07:00'
+keywords: []
+description: ''
+comment: no
+toc: no
+autoCollapseToc: yes
+postMetaInFooter: no
+hiddenFromHomePage: no
+contentCopyright: no
+reward: no
+mathjax: yes
+mathjaxEnableSingleDollar: yes
+mathjaxEnableAutoNumber: no
+hideHeaderAndFooter: no
+flowchartDiagrams:
+  enable: no
+  options: ''
+sequenceDiagrams:
+  enable: no
+  options: ''
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+
+</div>
+
+<p>There are many instances where you have a bunch of variables and you need to boil them down to one or just a few. For example,</p>
+<p>Within economics, people tend to use a few different approaches to constructing such “index” variables. The simplest method, which I’ve seen attributed to Katz, is to standardize each variable, add them all up, and then standardize again. Another common approach is to apply principal components analysis and use the first component. Lastly, people often use the approach by Anderson.</p>
+<pre class="r"><code>n &lt;- 1000
+x1 &lt;- rnorm(n)
+
+rho &lt;- .6
+Sigma &lt;- matrix(data = c(1,rho,rho, 1), nrow = 2)</code></pre>

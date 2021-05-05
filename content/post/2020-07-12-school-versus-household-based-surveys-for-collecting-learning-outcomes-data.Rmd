@@ -3,7 +3,7 @@ title: School versus household based surveys for collecting learning outcomes da
 author: ''
 date: '2020-07-12'
 slug: school-versus-household-based-surveys-for-collecting-learning-outcomes-data
-bibliography: sampling.bib
+bibliography: references.bib
 categories: []
 tags:
   - education
