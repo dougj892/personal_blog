@@ -1,29 +1,10 @@
 ---
-title: Index variables
+title: Index Variables Don't Make Sense to Me
 author: ''
-date: '2021-04-29'
-slug: []
+date: '2021-04-21'
+draft: 
 categories: []
-tags: []
-keywords: []
-description: ''
-comment: no
-toc: no
-autoCollapseToc: yes
-postMetaInFooter: no
-hiddenFromHomePage: no
-contentCopyright: no
-reward: no
-mathjax: yes
-mathjaxEnableSingleDollar: yes
-mathjaxEnableAutoNumber: no
-hideHeaderAndFooter: no
-flowchartDiagrams:
-  enable: no
-  options: ''
-sequenceDiagrams:
-  enable: no
-  options: ''
+
 ---
 
 There are many instances where you have a bunch of variables and you need to boil them down to one or just a few. For example, you may be testing the effect of an education program on students' confidence, self-efficacy, and learning levels. You will likely have at least one measure (likely more) for each of those core outcome variables and want to combine them into one to avoid having to do any multiple hypothesis corrections. 
