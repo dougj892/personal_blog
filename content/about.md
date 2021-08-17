@@ -7,3 +7,5 @@ weight: 50
 ---
 
 I am an independent consultant and researcher with a background in impact evaluations.  In my free time, I like climbing things. 
+
+This blog is maintained in R and RStudio using the [blogdown](https://bookdown.org/yihui/blogdown/) package. All posts are written as R notebooks. If you would like to access the source code for any post (without cutting and pasting from the html output), you can find the raw code at the [github repo](https://github.com/dougj892/personal_blog) for this blog.

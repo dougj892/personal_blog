@@ -1,5 +1,5 @@
 ---
-title: "India vs the World (education edition)"
+title: "How India Compares to the World on Learning Outcomes"
 author: ''
 date: '2021-03-14'
 slug: []
@@ -49,7 +49,7 @@ print(p)
 
 # Comparing India to other countries based on ASER
 
-The HLO dataset is fantastic but to generate comparable data for so many countries the creators of the dataset had to rely on some heroic assumptions. The HLO value for India relies entirely on one assessment: the 2009 PISA conducted in Tamil Nadu and HP. Surprisingly, according to the IHDS 2012 survey, students in HP and Tamil Nadu are fairly representative of students overall. The code below shows that the population weighted average of the two states is right around the average for the country overall. (HP does really well but Tamil Nadu does surprisingly poorly. I am using IHDS here rather than ASER because ASER excluded rural areas and a very large share of Tamilians live in cities. Also, I am averaging ASER scores for all children 8-11 in the sample which is not a great idea but should at least give a rough sense of HP and TN's relative performance.)
+The HLO dataset is fantastic but to generate comparable data for so many countries the creators of the dataset had to make some heroic assumptions. The HLO value for India relies entirely on one assessment: the 2009 PISA conducted in Tamil Nadu and HP. My first thought upon realizing this the 2009 PISA likely substantially over-estimates learning outcomes in India since Tamil Nadu is a relatively wealthy state and HP has a reputation for having a good education system. (HP was cited as an example of a high-performing state in the PROBE report.) Surprisingly, according to the IHDS 2012 survey, students in HP and Tamil Nadu are fairly representative of Indian students overall. The code below shows that the population weighted average of the two states is right around the average for the entire country. (HP does really well but Tamil Nadu does surprisingly poorly. I am using IHDS here rather than ASER because ASER excluded rural areas and a very large share of Tamilians live in cities. Also, I am averaging ASER scores for all children 8-11 in the sample which is not a great idea but should at least give a rough sense of HP and TN's relative performance.)
 
 
 ```{r}
@@ -81,7 +81,7 @@ gt(tn_hp) %>%
 
 ```
 
-While Tamil Nadu and HP, taken together, are not obvious outliers when it comes to education generating a data point for the country as a whole from a single survey conducted more than a decade ago in only two states is not ideal. 
+While Tamil Nadu and HP, taken together, are not obvious outliers when it comes to education generating a data point for the country as a whole from a single survey conducted more than a decade ago in only two states is still not ideal. 
 
 Another, in my opinion better, approach to comparing India to other countries on learning outcomes is to use data from ASER and other assessments inspired by ASER. Several countries around the world have completed assessments very similar to ASER. This [webpage](http://img.asercentre.org/docs/Impact/ASER%20Abroad/PalNetworkMay2017.pdf) contains stats from ASER and other ASER-like assessments conducted in Pakistan, Kenya, Uganda, Tanzania, Mali, Senegal, Mexico, and Nigeria in 2015 or 2016 on the share of 5th grade children who can read a grade 2 text. (It also has figures for numeracy, but they aren't really comparable across countries. For more on this very cool effort, check out the [People's Action for Learning Network](https://palnetwork.org/)). The advantages of using ASER-like assessments to compare countries are that:
 
