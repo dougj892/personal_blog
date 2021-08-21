@@ -1,0 +1,167 @@
+---
+title: "temp - estimate impact of Haryana reforms using ASER data"
+output: html_notebook
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+
+First, before using any fancy stats let's look at the trend over time in learning outcomes in Haryana vs other states.
+
+As always, all of this code is publicly available. Go over to the "About" page for instructions on how to get access to the raw code.
+
+
+```{r}
+# Import the ASER trends over time data from my Github public repo
+aser <- read_csv("https://raw.githubusercontent.com/dougj892/public-datasets/master/ASER%20trends%20over%20time.csv") %>% 
+  mutate_at(vars(-state_abbr, -State), as.numeric) %>% 
+  select(year, State, state_abbr, std3_read = std3_read_std1_all, std5_read = std5_read_std2_all, std3_math  = std3_subtract_all, std5_math = std5_divis_all) 
+
+# Create dataframe for plotting Haryana's learning outcomes over time
+df <- aser %>% 
+  filter(state_abbr == "HR") %>% 
+  pivot_longer(cols = starts_with("std"), names_to = "year_and_subject") %>% 
+  mutate(year_and_subject = case_when(
+    year_and_subject == "std3_math" ~ "Grade 3 can do subtraction",
+    year_and_subject == "std3_read" ~ "Grade 3 can read grade 2 text",
+    year_and_subject == "std5_math" ~ "Grade 5 can do division",
+    year_and_subject == "std5_read" ~ "Grade 5 can read grade 2 text"
+  ))
+
+
+ggplot(df, aes(x = year, y = value, colour = year_and_subject)) + 
+  geom_line() +
+  scale_x_continuous(breaks = seq(2006, 2018, 2))+
+  labs(title = "Haryana ASER scores over time", y = "% rural children", colour = "Year and subject")
+```
+
+It doesn't seem like there was any significant jump in Haryana after 2014 but perhaps learning outcomes in other states declined and thus Haryana still did better than other states.
+
+Let's first look at the trend in each state for standard 3 reading - the subject and grade combo that Haryana seems to do the best in.
+
+There are several states which seem to do as well as Haryana -- Assam, West Bengal, Odisha, Mizoram, Maharashtra, and Kerala.
+
+
+```{r}
+ggplot(aser, aes(x = year, y = std3_read)) +
+  geom_line() +
+  scale_x_continuous(breaks = seq(2006, 2018, 2))+
+  theme(axis.text.x = element_text(size = 5, angle = 90)) + 
+  facet_wrap( ~ state_abbr, nrow = 3) +
+  labs(title = "Figure 2: Grade 5 reading scores over time by state", y = "% rural grade 5 children can read grade 2 text")
+```
+Why so much going on in the graph above its a bit hard to directly compare the increase in scores in Haryana between 2014 and 2018.
+
+```{r}
+# Generate dataset of deltas from 2012 to 2014 
+diffs <- aser %>% filter((year == 2012) | (year == 2014)) %>% group_by(State) %>%
+  mutate_at(vars(starts_with("std")), ~.x-lag(.x, order_by = year)) %>% 
+  filter(year == 2014) %>% 
+  ungroup()
+
+diffs_long <- diffs %>% pivot_longer(starts_with("std"), names_to = "temp", values_to = "diff") %>% 
+  mutate(class = str_sub(temp, 4,4), subject = str_extract(temp, "(math|read)"))
+
+
+# plot the reading changes for 2016
+ggplot(diffs_long, aes(x = state_abbr, y = diff, fill=factor(ifelse(State=="haryana","Highlighted","Normal")))) + 
+  scale_fill_manual(name = "area", values=c("red","grey50"), guide= FALSE) +
+  geom_bar(stat = "identity")+
+  theme(axis.text.y = element_text(size = 5)) +
+  facet_grid(subject ~ class) +
+  coord_flip() +
+  labs(y = "Change from 2012 to 2014", x =element_blank(), title = "Figure 3: Change in ASER score 2012-2014 by state, subject and grade")
+
+```
+
+
+Estimating the impact of QIP using SCM
+```{r include = FALSE}
+library(Synth)
+
+# drop all years after 2014 and states with missing values
+# missing values generates an unbalanced panel which causes an error
+aser <- aser %>% filter(year <= 2014) %>% 
+  filter(!(state_abbr %in% c("SK", "TR", "JK", "MZ", "AR")))
+
+# Create index for state (this is required by the Synth package)
+aser <- aser %>% group_by(state_abbr) %>% mutate(id = group_indices())
+
+# Find the ID number for Haryana. We will need this later
+haryana_id <- aser$id[aser$state_abbr == "HR"][1]
+
+# Create a vector to assign relative weights to the predictors
+v <- c(.2,.2,.3,.3)
+
+prep_synth <- function(state_id) {
+  dataprep_state <- dataprep(foo = as.data.frame(aser),
+           predictors = c("std5_math", "std3_math"),
+           predictors.op = "mean",
+           time.predictors.prior = 2007:2012,
+           special.predictors = list(
+             list("std5_read", 2010:2012, "mean"),
+             list("std3_read", 2012, "mean")
+           ),
+           dependent = "std5_read",
+           unit.variable = "id",
+           unit.names.variable = "state_abbr",
+           time.variable = "year",
+           treatment.identifier = state_id, 
+           controls.identifier = seq(1,max(aser$id),1)[-state_id],
+           time.optimize.ssr = 2006:2012,
+           time.plot = 2006:2014)
+  return(dataprep_state)
+}
+
+# Fit the model to Haryana and see which states the method chose to approximate the synthetic control.
+synth.tab(hr, prep_synth(haryana_id))
+
+# Estimate placebo effect for each state. Technically, i should drop MH first but it doesn't make much of a difference
+estimate_effects <- function(state_id) {
+  dataprep.temp <- prep_synth(state_id)
+  synth.out <- synth(data.prep.obj = dataprep.temp, custom.v = v)
+  # Generate vector or yearly effects. See section 3.3 of "Synth: An R Package..."
+  yearly_effects <- dataprep.temp$Y1plot - (dataprep.temp$Y0plot %*% synth.out$solution.w) 
+  return(yearly_effects)
+}
+
+# Apply the estimate_effects function to each state in the dataset
+effects <- map(1:max(aser$id), estimate_effects)
+
+# Effects is a list of lists. Wrangle the list into a dataframe.
+temp <- as.data.frame(do.call(cbind, effects))
+effects_df <- as.data.frame(t(as.matrix(temp)))
+
+# Merge the dataframe of effects with a dataframe of states to get state names
+results_df <- aser %>% count(state_abbr, id) %>% 
+  arrange(id) %>% select(-n) %>% 
+  cbind(effects_df)
+```
+
+
+```{r include = FALSE}
+# Create bar charts of the effect in 2013 and 2014
+ggplot(results_df, aes(x = reorder(state_abbr, `2013`), 
+                       y= `2013`,
+                       fill = factor(ifelse(state_abbr=="HR","Highlighted","Normal")))) + 
+  scale_fill_manual(name = "area", values=c("red","grey50"), guide= FALSE) +
+  geom_bar(stat = "identity") +
+  labs(title = "Estimated effect in 2013", x = "State")
+
+
+ggplot(results_df, aes(x = reorder(state_abbr, `2014`), 
+                       y= `2014`,
+                       fill = factor(ifelse(state_abbr=="HR","Highlighted","Normal")))) + 
+  scale_fill_manual(name = "area", values=c("red","grey50"), guide= FALSE) +
+  geom_bar(stat = "identity")+
+  labs(title = "Estimated effect in 2014", x = "State")
+```
+
+
+
+
+
+
+

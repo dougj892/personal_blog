@@ -4,27 +4,9 @@ author: ''
 date: '2021-08-17'
 slug: []
 categories: []
-tags: []
-lastmod: '2021-08-17T12:35:01+07:00'
-keywords: []
-description: ''
-comment: no
-toc: no
-autoCollapseToc: no
-postMetaInFooter: no
-hiddenFromHomePage: no
-contentCopyright: no
-reward: no
-mathjax: no
-mathjaxEnableSingleDollar: no
-mathjaxEnableAutoNumber: no
-hideHeaderAndFooter: no
-flowchartDiagrams:
-  enable: no
-  options: ''
-sequenceDiagrams:
-  enable: no
-  options: ''
+draft: true
+tags:
+  - education
 ---
 
 In a [recent article]( https://www.sciencedirect.com/science/article/pii/S0738059321000626) Andres Parrado and I take a look at the two main sources of learning outcomes data in India -- NAS and ASER -- and conclude that a) NAS data is (most likely) completely unreliable and b) ASER data, while reliable, is a bit noisy. 

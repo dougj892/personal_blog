@@ -1,0 +1,21 @@
+"0","```r
+# Generate dataset of deltas from 2012 to 2014 
+diffs <- aser %>% filter((year == 2012) | (year == 2014)) %>% group_by(State) %>%
+  mutate_at(vars(starts_with(\"std\")), ~.x-lag(.x, order_by = year)) %>% 
+  filter(year == 2014) %>% 
+  ungroup()
+
+diffs_long <- diffs %>% pivot_longer(starts_with(\"std\"), names_to = \"temp\", values_to = \"diff\") %>% 
+  mutate(class = str_sub(temp, 4,4), subject = str_extract(temp, \"(math|read)\"))
+
+
+# plot the reading changes for 2016
+ggplot(diffs_long, aes(x = state_abbr, y = diff, fill=factor(ifelse(State==\"haryana\",\"Highlighted\",\"Normal\")))) + 
+  scale_fill_manual(name = \"area\", values=c(\"red\",\"grey50\"), guide= FALSE) +
+  geom_bar(stat = \"identity\")+
+  theme(axis.text.y = element_text(size = 5)) +
+  facet_grid(subject ~ class) +
+  coord_flip() +
+  labs(y = \"Change from 2012 to 2014\", x =element_blank(), title = \"Figure 3: Change in ASER score 2012-2014 by state, subject and grade\")
+
+```"

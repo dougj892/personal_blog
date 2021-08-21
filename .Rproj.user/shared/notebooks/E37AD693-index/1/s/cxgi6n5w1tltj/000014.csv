@@ -1,0 +1,4 @@
+"0",""
+"0","ggplot(hlo_reading, aes(log_gdp, aser_reading, label = code)) + geom_point() +"
+"0","  geom_text_repel()+ "
+"0","  labs(title = ""ASER / UWEZO vs log GDP per capita"", x = ""log GDP per capita"", y = ""% 5th graders able to read class 2 text"")"
