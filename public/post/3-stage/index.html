@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Three Stage Sampling - Doug Johnson</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Doug" /><meta name="description" content="Caveat emptor: This blog post has not been thoroughly checked for errors.
+One of IDinsight&amp;rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households. In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&amp;rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="/post/3-stage/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Three Stage Sampling" />
+<meta property="og:description" content="Caveat emptor: This blog post has not been thoroughly checked for errors.
+One of IDinsight&rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households. In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/3-stage/" />
+<meta property="article:published_time" content="2017-10-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-10-04T00:00:00+00:00" />
+<meta itemprop="name" content="Three Stage Sampling">
+<meta itemprop="description" content="Caveat emptor: This blog post has not been thoroughly checked for errors.
+One of IDinsight&rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households. In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs.">
+<meta itemprop="datePublished" content="2017-10-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-10-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1024">
+
+
+
+<meta itemprop="keywords" content="Sampling," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Three Stage Sampling"/>
+<meta name="twitter:description" content="Caveat emptor: This blog post has not been thoroughly checked for errors.
+One of IDinsight&rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households. In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Doug Johnson</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Doug Johnson</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Three Stage Sampling</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-10-04 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#when-you-do-you-need-to-take-into-both-stages">When you do you need to take into both stages?</a></li>
+    <li><a href="#how-do-you-account-for-a-three-stage-design">How do you account for a three stage design?</a></li>
+    <li><a href="#how-should-you-estimate-the-inputs-required-for-these-calculations">How should you estimate the inputs required for these calculations?</a></li>
+    <li><a href="#how-do-you-properly-account-for-a-three-stage-design-when-analyzing-data">How do you properly account for a three stage design when analyzing data?</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><em>Caveat emptor: This blog post has not been thoroughly checked for errors.</em></p>
+<p>One of IDinsight&rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households.  In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs.</p>
+<p>In this post, I&rsquo;ll try to answer four questions:</p>
+<ol>
+<li>When do you need to take into account both stages of clustering in a survey or evaluation?</li>
+<li>How do you properly account for a three stage design when performing sample size / power calculations?</li>
+<li>How should you estimate the inputs required for these calculations?</li>
+<li>How do you properly account for a three stage design when analyzing data?</li>
+</ol>
+<h1 id="when-you-do-you-need-to-take-into-both-stages">When you do you need to take into both stages?</h1>
+<p>With an RCT, it&rsquo;s pretty rare that you really need to take into account two stages of clustering. Remember that just because units exhibit some sort of clustering doesn&rsquo;t mean that you need to adjust for clustering in your analysis.  For example, if you randomize at the student level it doesn&rsquo;t matter that student learning outcomes exhibit clustering at the classroom level.  An example of when you might want to take into account two stages of clustering is when you randomize large clusters (e.g. schools) and then only collect data from units in a randomly sampled set of smaller clusters (e.g. kids in classrooms).  With surveys, anytime you have a three stage design you should theoretically take into account the clustering at both levels.</p>
+<p>Even when it makes sense in theory to take into account both stages of clustering, you can usually get by with just considering the most aggregate (highest) level of clustering.  We&rsquo;ll see below why that makes sense.  In some cases, e.g. when you are trying to find the optimal survey design for a given budget, you do really need to take into account both stages of clustering.</p>
+<h1 id="how-do-you-account-for-a-three-stage-design">How do you account for a three stage design?</h1>
+<p><em>(The advice given below is tailored to someone performing sampling size calcs for a survey with a three stage design.  All of the advice holds true for power calcs as well.  You just need to multiply the final variance by 2 (since you have 2 groups &ndash; treatment and control) and then use the standard adjustment to the standard error for power calcs &ndash; i.e. instead of multiplying the standard error by +/-1.96 to create a 95% confidence interval you multiply by ~2.8 to calculate an MDE for alpha .05 and power .8.)</em></p>
+<p>Let&rsquo;s first recap how one stage of clustering affects the variance of your estimator.  Let&rsquo;s say that you will use a two stage sampling strategy in which you will first randomly sample J clusters and then randomly sample K units from each cluster to estimate the mean of some variable y.  Further assume that the total number of units per cluster does not vary and is pretty large.  If values of y are correlated within each cluster, we can think of the values for y as being made up of a cluster component and an independent within-cluster component, i.e.</p>
+<p>$$y_{j,k}=\eta_j+\phi_{j,k}$$</p>
+<p>This allows us to calculate the variance the of y as:</p>
+<p>$$\sigma^2_y=\sigma^2_{\eta}+\sigma^2_{\phi}$$</p>
+<p>And the variance of the mean as:</p>
+<p>$$Var(\bar{y})=\frac{\sigma^2_{\eta}}{J}+\frac{\sigma^2_{\phi}}{JK}=\sigma^2_y\left(\frac{\rho}{J}+\frac{(1-\rho)}{JK}\right)$$</p>
+<p>Where \( \rho=\frac{\sigma^2_{\eta}}{\sigma^2_y} \).  It&rsquo;s also useful to calculate the design effect, or the ratio of the variance of this estimator to the ratio of the estimator if the sample had been collected using simple random sampling (SRS). Since the variance under SRS would be \( \frac{\sigma^2_y}{JK} \) the design effect\(=1+(K-1)\rho\).</p>
+<p>Let&rsquo;s now suppose that we have a higher level sampling stage. We first pick Q mega-clusters, then J clusters from each mega-cluster, and then K households from each cluster.  Similarly, we can think of the values y as made of three components:</p>
+<p>$$y_{q,j,k}=\gamma_q+\eta_{q,j}+\phi_{q,j,k}$$</p>
+<p>The variance of y is then:</p>
+<p>$$\sigma^2_y=\sigma^2_{\gamma}+\sigma^2_{\eta}+\sigma^2_{\phi}$$</p>
+<p>And the variance of the mean is:</p>
+<p>$$Var(\bar{y})=\frac{\sigma^2_{\gamma}}{Q}+\frac{\sigma^2_{\eta}}{QJ}+\frac{\sigma^2_{\phi}}{QJK}=\sigma^2_y\left(  \frac{\rho_{\gamma}}{Q}+\frac{\rho_{\eta}}{QJ}+\frac{(1-\rho_{\gamma}-\rho_{\eta})}{QJK} \right)$$</p>
+<p>Where \(\rho_{\eta}=\frac{\sigma^2_{\eta}}{\sigma^2_y}\) and \(\rho_{\gamma}=\frac{\sigma^2_{\gamma}}{\sigma^2_y}\).  For our three stage sampling design, the design effect is:</p>
+<p>$$DEFF=1+(K-1)\rho_{\eta}+(JK-1)\rho_{\gamma}$$</p>
+<p>This also shows why just looking at the most aggregate level of clustering is usually pretty reasonable &ndash; assuming the two ICCs are relatively similar in size, the adjustment to the variance will be driven primarily by the most aggregate level of clustering.</p>
+<h1 id="how-should-you-estimate-the-inputs-required-for-these-calculations">How should you estimate the inputs required for these calculations?</h1>
+<p>Now that we know how to adjust our estimate of the variance using the ICC at both levels, the next obvious questions is where to find the different values for the ICC.</p>
+<p>If you are lucky, you might find a dataset which includes both levels of clustering and the variable you are interested (or some similiar variable).  If so, then you can use Stata&rsquo;s anova command to estimate the two ICCs.  I&rsquo;m not really sure how to do this is Stata, but I think that it should be relatively straightforward if you search the help file for &ldquo;nested anova.&rdquo;  (And if you figure out how to do it please let me know!)</p>
+<p>Alternatively, you can resort to the typical hack of using a design effect calculated from another survey with a similar three stage design.  <a href="https://unstats.un.org/unsd/hhsurveys/pdf/Chapter_7.pdf">Here</a> are a few design effects from which to draw from. (As an aside, it would also be useful for us to start recording the design effects for key variables from our own surveys.  To get the design effect for a survey dataset in Stata first &ldquo;svyset&rdquo; your dataset, then estimate the population mean of a variable using &ldquo;svy: mean <variable>&rdquo;, and then run &ldquo;estat effects&rdquo; to get the design effect for the estimate.)</p>
+<h1 id="how-do-you-properly-account-for-a-three-stage-design-when-analyzing-data">How do you properly account for a three stage design when analyzing data?</h1>
+<p>Unfortunately, most Stata commands only allow for a single stage of clustering.  To account for two or more stages of clustering, you need to first &ldquo;svyset&rdquo; your data and then use the &ldquo;svy&rdquo; prefix before running any command.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Doug</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2017-10-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/sampling/">Sampling</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/an-alternative-approach-to-power-calculations/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">An Alternative Approach to Power Calculations</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/srs-v-pps/">
+            <span class="next-text nav-default">Simple Random Sampling vs. PPS Sampling</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:dougj892@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="dougj8921" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="dougj892" class="iconfont icon-github" title="github"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Doug Johnson</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-1723694-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doug Johnson</title>
+    <link>/</link>
+    <description>Recent content on Doug Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
+      
+      <guid>/about/</guid>
+      <description>I am an independent consultant and researcher with a background in impact evaluations. In my free time, I like climbing things.
+This blog is maintained in R and RStudio using the blogdown package. All posts are written as R notebooks. If you would like to access the source code for any post (without cutting and pasting from the html output), you can find the raw code at the github repo for this blog.</description>
+    </item>
+    
+    <item>
+      <title>Estimating the Impact of State Education Policies in India Using ASER and Synthetic Controls</title>
+      <link>/post/2021-08-23-estimating-the-impact-of-state-education-policies-in-india/</link>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-08-23-estimating-the-impact-of-state-education-policies-in-india/</guid>
+      <description>In a recent article Andres Parrado and I take a look at the two main sources of learning outcomes data in India – NAS and ASER – and conclude that a) NAS data is (most likely) completely unreliable and b) ASER data, while reliable, is a bit noisy.
+The implications for people considering using NAS data are pretty clear – you shouldn’t. For ASER, the implications are a bit murkier.</description>
+    </item>
+    
+    <item>
+      <title>Index Variable Weirdness</title>
+      <link>/post/2021-07-19-index-variable-weirdness/</link>
+      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-07-19-index-variable-weirdness/</guid>
+      <description>There are many instances where you have a bunch of variables and you need to boil them down to one or just a few. For example, you may be testing the effect of an education program on students’ confidence, self-efficacy, and learning levels. You will likely have at least one measure (likely more) for each of those core outcome variables and want to combine them into one to avoid having to do any multiple hypothesis corrections.</description>
+    </item>
+    
+    <item>
+      <title>Lessons from RSBY for Indian Civil Service Reform</title>
+      <link>/post/2021-07-18-lessons-from-rsby-for-indian-civil-service-reform/</link>
+      <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-07-18-lessons-from-rsby-for-indian-civil-service-reform/</guid>
+      <description>TLDR; The experience of RSBY, a government subsidized health insurance program, shows why India desperately needs civil service reform. RSBY showed early promise but ultimately failed because state RSBY teams were unable to perform basic monitoring tasks that even a small, reasonably competent team could have accomplished.
+About ten years ago, I spent a summer working as a World Bank consultant on RSBY, a (then) new centrally government subsidized health insurance program for in-patient care.</description>
+    </item>
+    
+    <item>
+      <title>India vs the World (education edition)</title>
+      <link>/post/2021-03-14-how-india-compares-to-the-world-on-education-performance/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-03-14-how-india-compares-to-the-world-on-education-performance/</guid>
+      <description>Researchers at the World Bank recently released an excellent new dataset on learning outcomes by country.The dataset is here and a journal article describing the dataset is here. This is the first dataset on learning outcomes (rather than educational attainment) which includes most low income countries. (Hanushek and Woesmann created a cross country dataset on learning outcomes some time back but it only included 77 countries.)
+How well does India do according to the HLO dataset?</description>
+    </item>
+    
+    <item>
+      <title>Evidence at USAID, part two</title>
+      <link>/post/increasing-evidence-use-at-usaid/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/increasing-evidence-use-at-usaid/</guid>
+      <description>In my last blog post, I shared some thoughts on Sarah Rose’s excellent recent working paper on how USAID could become more evidence based. TLDR: I argue that USAID doesn’t necessarily need to generate evidence (since there are plenty of other orgs that do that) but it does need to the use the latest and best evidence. Unfortunately, this is not always the case.
+Roses’ paper has several interesting recommendations for ensuring that USAID makes better use of evidence.</description>
+    </item>
+    
+    <item>
+      <title>Evidence at USAID</title>
+      <link>/post/evidence-based-programming-at-usaid/</link>
+      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/evidence-based-programming-at-usaid/</guid>
+      <description>Sarah Rose at the Center for Global Development recently published an excellent note on how to make USAID programming more evidence-based. As a former member of one of the groups mentioned in the article (the Evaluation and Impact Assessment group at the erstwhile Global Development Lab) and a long-time evaluator, this is a topic dear to my cold, data-driven heart. I realize that probably marks me as a member of very small fraternity, but people really should care more about making donors more evidence-based!</description>
+    </item>
+    
+    <item>
+      <title>IHDS Quick Start Guide</title>
+      <link>/post/getting-started-with-ihds-data/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/getting-started-with-ihds-data/</guid>
+      <description>I recently used data from the India Human Development Survey (IHDS) for a paper on learning outcomes data in India. IHDS is a panel survey led by Sonalde Desai and others at NCAER/UofMd which collected on a wide range of topics from ~42,000 households across India. The survey includes two rounds of data collection, the first round in 2004/5 and the second round in 2011/12. (According to the website, a third round is in the works.</description>
+    </item>
+    
+    <item>
+      <title>School versus household based surveys for collecting learning outcomes data</title>
+      <link>/post/school-versus-household-based-surveys-for-collecting-learning-outcomes-data/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/school-versus-household-based-surveys-for-collecting-learning-outcomes-data/</guid>
+      <description>I recently wrote a working paper in which I look at the reliability of learning outcomes data in India. The main findings of the paper are a) the government-run survey of learning outcomes (called the NAS) likely contains a lot of noise and b) the main independent survey of learning outcomes (ASER) is a tad bit noisier than the survey’s sample size would lead one to believe.
+In the process of working on the paper, I spent a bit of time looking at learning outcomes surveys across the world.</description>
+    </item>
+    
+    <item>
+      <title>Why India Should Focus on Educational TV rather than EdTech</title>
+      <link>/post/why-india-should-focus-on-educational-tv-rather-than-edtech/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-india-should-focus-on-educational-tv-rather-than-edtech/</guid>
+      <description>A couple of weeks ago, Rob Sampson and I published an op-ed in Quartz India arguing that the central and state governments in India should use Educational TV rather than smartphone-based EdTech to reach students out of school due to the covid crisis. We use survey data to show that smartphone penetration in India is much lower than sales figures would lead you to believe. By contrast, TV ownership is relatively high even among the poor.</description>
+    </item>
+    
+    <item>
+      <title>Estimating seroprevalence with data from an imperfect test on a convenience sample</title>
+      <link>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</guid>
+      <description>Several recent studies have used data from antibody tests performed on a convenience sample to estimate seroprevalence of covid 19 in a population. Estimating seroprevalence from this data presents two challenges. First, the analyst must take steps, through weighting or other measures, to deal with likely sample selection bias. Second, the analyst must take into account imperfections in the test itself.
+Addressing either of these challenges on their own is relatively straightforward to do using existing tools.</description>
+    </item>
+    
+    <item>
+      <title>An Alternative Approach to Power Calculations</title>
+      <link>/post/an-alternative-approach-to-power-calculations/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/an-alternative-approach-to-power-calculations/</guid>
+      <description>The typical approach to power calculations goes something like this: first, the evaluator estimates the smallest MDE for which the intervention would be cost-effective. Second, the evaluator calculates the sample required to detect that MDE. Third, the evaluator throws out the calculations from step two after realizing the evaluation would be way too expensive and instead estimates the MDE she can detect given her budget constraints.The problem with this approach is that it doesn’t take into account the cost of the evaluation itself.</description>
+    </item>
+    
+    <item>
+      <title>Three Stage Sampling</title>
+      <link>/post/3-stage/</link>
+      <pubDate>Wed, 04 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/3-stage/</guid>
+      <description>Caveat emptor: This blog post has not been thoroughly checked for errors.
+One of IDinsight&amp;rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households. In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&amp;rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs.</description>
+    </item>
+    
+    <item>
+      <title>Simple Random Sampling vs. PPS Sampling</title>
+      <link>/post/srs-v-pps/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/srs-v-pps/</guid>
+      <description>A question came up on one of our evaluations on whether we should use simple random sampling (SRS) or probability proportional to size (PPS) sampling when selecting villages (our primary sampling units) for a matching study. Under SRS, you randomly select primary sampling units (PSUs) until you reach your desired sample size. With PPS sampling, you select your PSUs using some measure of size. PPS is often used in a first stage of a two-stage sampling design because if you use PPS to select PSUs and then select a fixed number of units (households in our case) per PSU in the second stage of sampling, the probability of selection will be identical for all units.</description>
+    </item>
+    
+    <item>
+      <title>Fixed Effects vs Difference-in-Differences</title>
+      <link>/post/fe-did/</link>
+      <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fe-did/</guid>
+      <description>TL;DR: When you have longitudinal data, you should use fixed effects or ANCOVA rather than difference-in-differences since a difference-in-difference specification will spit out incorrect variance estimates. If the data is from a randomized trial, ANCOVA is probably a better bet.
+Trying to understand when to use fixed effects and when to use difference-in-differences (DiD), in the past, always made me feel like an idiot. It seemed like I was missing something really obvious that everyone else was getting.</description>
+    </item>
+    
+    <item>
+      <title>Web Scraping 101</title>
+      <link>/post/web-scraping/</link>
+      <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/web-scraping/</guid>
+      <description>More and more organizations are publishing their data on the web. This is great, but often websites don’t offer an option to download a clean and complete dataset from the site. In this situation, you have two options. First, you (or some unlucky intern) can hunker down and spend a week wearing out the ‘c’ and ‘v’ keys on your keyboard as you cut and paste ad nauseam from the website to an Excel spreadsheet.</description>
+    </item>
+    
+    <item>
+      <title>Multiple Hypothesis Testing</title>
+      <link>/post/mult-hypothesis/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mult-hypothesis/</guid>
+      <description>This week, I volunteered to read and summarize one of the articles for IDinsigh&amp;rsquo;s tech team&amp;rsquo;s book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is &amp;ldquo;Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects&amp;rdquo; by Michael Anderson. You can find an ungated version of the article here.</description>
+    </item>
+    
+    <item>
+      <title>Response to Blattman&#39;s Post on Why What Works Is The Wrong Question</title>
+      <link>/post/blattman/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/blattman/</guid>
+      <description>Last week, Chris Blattman published a long blog post titled “Why ‘what works?’ is the wrong question: evaluating ideas not programs.” In the blog post, which was adapted from a talk he gave at DFID, Blattman argues that a) impact evaluations should focus on deeper, theory-driven questions rather than just whether a program works or not and b) researchers should design impact evaluations to allow for generalizability by paying attention to context and running multiple evaluations in multiple contexts.</description>
+    </item>
+    
+  </channel>
+</rss>

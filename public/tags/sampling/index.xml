@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sampling on Doug Johnson</title>
+    <link>/tags/sampling/</link>
+    <description>Recent content in Sampling on Doug Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/sampling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>School versus household based surveys for collecting learning outcomes data</title>
+      <link>/post/school-versus-household-based-surveys-for-collecting-learning-outcomes-data/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/school-versus-household-based-surveys-for-collecting-learning-outcomes-data/</guid>
+      <description>I recently wrote a working paper in which I look at the reliability of learning outcomes data in India. The main findings of the paper are a) the government-run survey of learning outcomes (called the NAS) likely contains a lot of noise and b) the main independent survey of learning outcomes (ASER) is a tad bit noisier than the survey’s sample size would lead one to believe.
+In the process of working on the paper, I spent a bit of time looking at learning outcomes surveys across the world.</description>
+    </item>
+    
+    <item>
+      <title>Estimating seroprevalence with data from an imperfect test on a convenience sample</title>
+      <link>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</guid>
+      <description>Several recent studies have used data from antibody tests performed on a convenience sample to estimate seroprevalence of covid 19 in a population. Estimating seroprevalence from this data presents two challenges. First, the analyst must take steps, through weighting or other measures, to deal with likely sample selection bias. Second, the analyst must take into account imperfections in the test itself.
+Addressing either of these challenges on their own is relatively straightforward to do using existing tools.</description>
+    </item>
+    
+    <item>
+      <title>Three Stage Sampling</title>
+      <link>/post/3-stage/</link>
+      <pubDate>Wed, 04 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/3-stage/</guid>
+      <description>Caveat emptor: This blog post has not been thoroughly checked for errors.
+One of IDinsight&amp;rsquo;s project teams is in the process of designing the sampling strategy for a large scale household survey and is considering using a three stage sampling design in which they would first select districts, then villages (or urban wards), and then households. In addition, someone was asking about three stage clustering for an RCT somewhere on Slack (I can&amp;rsquo;t seem to find the slack post now) so I thought it might be useful to write a short post on three stage designs.</description>
+    </item>
+    
+    <item>
+      <title>Simple Random Sampling vs. PPS Sampling</title>
+      <link>/post/srs-v-pps/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/srs-v-pps/</guid>
+      <description>A question came up on one of our evaluations on whether we should use simple random sampling (SRS) or probability proportional to size (PPS) sampling when selecting villages (our primary sampling units) for a matching study. Under SRS, you randomly select primary sampling units (PSUs) until you reach your desired sample size. With PPS sampling, you select your PSUs using some measure of size. PPS is often used in a first stage of a two-stage sampling design because if you use PPS to select PSUs and then select a fixed number of units (households in our case) per PSU in the second stage of sampling, the probability of selection will be identical for all units.</description>
+    </item>
+    
+  </channel>
+</rss>

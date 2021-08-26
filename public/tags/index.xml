@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Doug Johnson</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Doug Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>education</title>
+      <link>/tags/education/</link>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>/tags/data/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sampling</title>
+      <link>/tags/sampling/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sampling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>op-eds</title>
+      <link>/tags/op-eds/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/op-eds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes</title>
+      <link>/tags/bayes/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Power calculations</title>
+      <link>/tags/power-calculations/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/power-calculations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Econometrics</title>
+      <link>/tags/econometrics/</link>
+      <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/econometrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scraping</title>
+      <link>/tags/scraping/</link>
+      <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/scraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Impact evaluations</title>
+      <link>/tags/impact-evaluations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/impact-evaluations/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

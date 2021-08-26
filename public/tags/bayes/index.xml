@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayes on Doug Johnson</title>
+    <link>/tags/bayes/</link>
+    <description>Recent content in Bayes on Doug Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/bayes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Estimating seroprevalence with data from an imperfect test on a convenience sample</title>
+      <link>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</guid>
+      <description>Several recent studies have used data from antibody tests performed on a convenience sample to estimate seroprevalence of covid 19 in a population. Estimating seroprevalence from this data presents two challenges. First, the analyst must take steps, through weighting or other measures, to deal with likely sample selection bias. Second, the analyst must take into account imperfections in the test itself.
+Addressing either of these challenges on their own is relatively straightforward to do using existing tools.</description>
+    </item>
+    
+    <item>
+      <title>An Alternative Approach to Power Calculations</title>
+      <link>/post/an-alternative-approach-to-power-calculations/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/an-alternative-approach-to-power-calculations/</guid>
+      <description>The typical approach to power calculations goes something like this: first, the evaluator estimates the smallest MDE for which the intervention would be cost-effective. Second, the evaluator calculates the sample required to detect that MDE. Third, the evaluator throws out the calculations from step two after realizing the evaluation would be way too expensive and instead estimates the MDE she can detect given her budget constraints.The problem with this approach is that it doesn’t take into account the cost of the evaluation itself.</description>
+    </item>
+    
+  </channel>
+</rss>

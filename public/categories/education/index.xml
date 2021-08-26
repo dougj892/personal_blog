@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>education on Doug Johnson</title>
+    <link>/categories/education/</link>
+    <description>Recent content in education on Doug Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/education/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why India Should Focus on Educational TV rather than EdTech</title>
+      <link>/post/why-india-should-focus-on-educational-tv-rather-than-edtech/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-india-should-focus-on-educational-tv-rather-than-edtech/</guid>
+      <description>A couple of weeks ago, Rob Sampson and I published an op-ed in Quartz India arguing that the central and state governments in India should use Educational TV rather than smartphone-based EdTech to reach students out of school due to the covid crisis. We use survey data to show that smartphone penetration in India is much lower than sales figures would lead you to believe. By contrast, TV ownership is relatively high even among the poor.</description>
+    </item>
+    
+  </channel>
+</rss>

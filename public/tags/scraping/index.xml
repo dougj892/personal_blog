@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scraping on Doug Johnson</title>
+    <link>/tags/scraping/</link>
+    <description>Recent content in Scraping on Doug Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 31 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/scraping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web Scraping 101</title>
+      <link>/post/web-scraping/</link>
+      <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/web-scraping/</guid>
+      <description>More and more organizations are publishing their data on the web. This is great, but often websites don’t offer an option to download a clean and complete dataset from the site. In this situation, you have two options. First, you (or some unlucky intern) can hunker down and spend a week wearing out the ‘c’ and ‘v’ keys on your keyboard as you cut and paste ad nauseam from the website to an Excel spreadsheet.</description>
+    </item>
+    
+  </channel>
+</rss>

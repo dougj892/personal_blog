@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Multiple Hypothesis Testing - Doug Johnson</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Doug" /><meta name="description" content="This week, I volunteered to read and summarize one of the articles for IDinsigh&amp;rsquo;s tech team&amp;rsquo;s book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is &amp;ldquo;Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects&amp;rdquo; by Michael Anderson. You can find an ungated version of the article here." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="/post/mult-hypothesis/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Multiple Hypothesis Testing" />
+<meta property="og:description" content="This week, I volunteered to read and summarize one of the articles for IDinsigh&rsquo;s tech team&rsquo;s book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is &ldquo;Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects&rdquo; by Michael Anderson. You can find an ungated version of the article here." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/mult-hypothesis/" />
+<meta property="article:published_time" content="2016-07-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-07-04T00:00:00+00:00" />
+<meta itemprop="name" content="Multiple Hypothesis Testing">
+<meta itemprop="description" content="This week, I volunteered to read and summarize one of the articles for IDinsigh&rsquo;s tech team&rsquo;s book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is &ldquo;Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects&rdquo; by Michael Anderson. You can find an ungated version of the article here.">
+<meta itemprop="datePublished" content="2016-07-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-07-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1270">
+
+
+
+<meta itemprop="keywords" content="Econometrics," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Multiple Hypothesis Testing"/>
+<meta name="twitter:description" content="This week, I volunteered to read and summarize one of the articles for IDinsigh&rsquo;s tech team&rsquo;s book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is &ldquo;Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects&rdquo; by Michael Anderson. You can find an ungated version of the article here."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Doug Johnson</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Doug Johnson</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Multiple Hypothesis Testing</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-07-04 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-problem-with-multiple-hypothesis-testing">The problem with multiple hypothesis testing</a></li>
+    <li><a href="#approach-1---reduce-the-number-of-tests">Approach 1 - Reduce the number of tests</a></li>
+    <li><a href="#approach-2---adjust-your-p-values">Approach 2 - Adjust your p-values</a></li>
+    <li><a href="#approach-3---ignore-the-problem-see-disclaimer-below">Approach 3 - Ignore the problem (see disclaimer below)</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>This week, I volunteered to read and summarize one of the articles for IDinsigh&rsquo;s tech team&rsquo;s book club. The topic for this week is multiple hypothesis testing and the article I volunteered to summarize is &ldquo;Multiple Inference and Gender Differences in the Effects of Early Intervention: A Reevaluation of the Abecedarian, Perry Preschool, and Early Training Projects&rdquo; by Michael Anderson.  You can find an ungated version of the article <a href="http://ist-socrates.berkeley.edu/~raphael/IGERT/Workshop/Anderson%20Preschool.pdf">here</a>.</p>
+<p>Since not everyone at IDinsight has time to participate in these calls and I tend to forget anything that I don&rsquo;t write down I thought I&rsquo;d do a blog post on the article.  I&rsquo;m not going to summarize the article itself, but rather just the key takeaways.</p>
+<h1 id="the-problem-with-multiple-hypothesis-testing">The problem with multiple hypothesis testing</h1>
+<p>The problem with conducting multiple hypothesis tests is simple: if you test conduct 100 hypothesis tests at the 5% level, even if all of the null hypotheses are true you would expect to reject around 5 hypotheses. This isn&rsquo;t necessarily an issue if you keep in mind that you <em>should</em> expect to see around 5 rejections, but it definitely is a problem if you go cherry picking for results like this&hellip;</p>
+<p><img src="http://imgs.xkcd.com/comics/significant.png" alt="XKCD on p hacking"></p>
+<p>There are two main approaches to dealing with this problem.  I&rsquo;ll first talk about the most obvious way to deal with it which is to reduce the number of tests by aggregating your outcome variables.  Next, I&rsquo;ll talk about an alternate approach which instead adjusts the p-values of each test to account for the multiple testing.  In addition to these two main approaches to the problem, I&rsquo;ll also talk about my favorite approach: ignoring the problem.  (But we warned, you can only get away with this under certain conditions! Read below for more.)</p>
+<h1 id="approach-1---reduce-the-number-of-tests">Approach 1 - Reduce the number of tests</h1>
+<p>The most straightforward approach to dealing with the problem of multiple hypothesis tests is to reduce the number of tests by aggregating your outcome variables into an index.  In principle, you could aggregate your outcome variables into a single index however you wanted but some ways make more sense than others.  For example, it probably isn&rsquo;t a good idea to take a simple average of different outcomes because the relative weighting of each variable would depend greatly on the scale on which each variable is measured.</p>
+<p>The approach Anderson uses is as follows:</p>
+<ol>
+<li>Normalize each outcome variable by subtracting the mean and dividing by the standard deviation of the control group. In symbols, calculate:</li>
+</ol>
+<p>$$\tilde{y}<em>{ik}=\frac{y</em>{ik}-\bar{y}<em>k}{\sigma</em>{k,c}}$$</p>
+<p>Where i indexes observations and k indexes outcomes.</p>
+<ol start="2">
+<li>Calculate \( \hat{\Sigma} \), the sample variance covariance matrix for this vector of transformed outcomes</li>
+<li>Calculate \( \mathbf{s_i}=\hat{\Sigma}^{-1}\cdot \mathbf{\tilde{y_i}} \) the dot product of the inverse of the sample variance covariance matrix and the vector of outcomes for each observation</li>
+<li>Add up the elements of  \( \mathbf{s_i} \) to get your final index</li>
+</ol>
+<p>Unfortunately, I am unable to find code in Stata to do this. <a href="http://nbviewer.jupyter.org/github/dougj892/Jupyter-notebooks/blob/master/Anderson%20summary%20index.ipynb">Here</a> is some sample code showing how to do this in Python.  If anyone finds / writes code to do this, please let the rest of us know.</p>
+<p>Anderson&rsquo;s approach seems like a good approach if there is no alternative principled way to aggregate the outcome variables.  As Anderson points out, this approach increases power by weighting those outcome variables that are not highly correlated with other outcome variables more. In some cases there might be a more natural theory based way of aggregating the outcome variables.  For example, if you think the various outcome variables all measure some latent variable you might use item response theory or something else to estimate the latent variable.</p>
+<p>As a sidenote, as great way to test for balance at baseline in an RCT is to use randomization inference on a single index constructed using basically the same approach.  See <a href="http://projecteuclid.org/download/pdfview_1/euclid.ss/1219339114">here</a> for more info.</p>
+<h1 id="approach-2---adjust-your-p-values">Approach 2 - Adjust your p-values</h1>
+<p>A second approach to dealing with multiple tests is to adjust your p-values to take into account the fact that you are conducting multiple tests at the same time.  The typical way to do this is to control the Family-Wise Error Rate (FWER), defined as the probability of making a single type 1 error (i.e. rejecting the null when the null is true).  (This isn&rsquo;t the only thing you could control for though.  See <a href="https://normaldeviate.wordpress.com/2012/10/04/testing-millions-of-hypotheses-fdr/">here</a> for an alternative.) The easiest, but most conservative, way to control the FWER is to simply multiply your p-values by the number of tests you are conducting.  This method, called the Bonferroni method, works because the probability of making any type 1 error can&rsquo;t be larger than the sum of the probabilities of making a type 1 error when all the nulls are true.  Due to its simplicity, the Bonferonni method is useful for performing power calculations.</p>
+<p>The Bonferroni method works, but, as I mentioned, it&rsquo;s <em>really</em> conservative.  There a couple of ways we can do better: by using a step-down method and by taking into account the correlation between test statistics.  Step down is a nifty trick in which you first order p-values smallest to largest and then sequentially reject null hypotheses using the smallest p-value first until you encounter a p-value that is too large after which you fail to reject all further hypotheses.  This <a href="https://en.m.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method">page</a> has a good explanation of why this works for the step down equivalent of the Bonferroni method, the Holm-Bonferroni.</p>
+<p>The other way you can get more power is by taking into account the correlation between test statistics.  The basic idea here is that if your test statistics are all perfectly correlated you shouldn&rsquo;t be adjusting your p-values at all because you should either reject all of the hypotheses or fail to reject all of them.</p>
+<p>Anderson uses a combination of these two tools to increase the power.  If you want more details of the intuition behind this technique, I found this <a href="http://statistics.berkeley.edu/sites/default/files/tech-reports/633.pdf">article</a> helpful.</p>
+<p>Again, we were unable to find code in Stata to do this. If anyone has any suggestions, please let us know.</p>
+<h1 id="approach-3---ignore-the-problem-see-disclaimer-below">Approach 3 - Ignore the problem (see disclaimer below)</h1>
+<p>Now we come to my personal favorite approach &ndash; ignoring the problem. But first, I should offer a strong disclaimer: this is only a reasonable option in certain circumstances.  To see why you sometimes might want to ignore the multiple hypothesis testing problem, consider a situation in which you happen to run 10 completely independent RCTs for a single client at the same time which eack look at completely different interventions targeting different outcomes. In this case, you almost certainly wouldn&rsquo;t want to correct the p-value for one RCT to take into account the fact that you happen to be running another RCT at the same time.  Often the decision of whether one should correct for multiple hypothesis testing or not is subtle and depends on your perspective.  I don&rsquo;t want to go into the full debate here, but I think that a useful approach for determining whether ignoring the problem is to first answer the following two questions.  First, are each of the hypothesis tests informing a separate independent decision or are they informing a single decision?  For example, is the purpose of the hypothesis tests to determine whether to individually continue each of ten programs or is the purpose to determine whether any of the ten programs?  Second, will the results from the evaluation be shared with the outside world or just with the client?  If the answer to the first question is &ldquo;independent decisions&rdquo; and the answer to the second is &ldquo;just the client,&rdquo; you might consider ignoring the problem.  (But make sure to run this by your TT point person first!)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Doug</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2016-07-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/econometrics/">Econometrics</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/web-scraping/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Web Scraping 101</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/blattman/">
+            <span class="next-text nav-default">Response to Blattman&#39;s Post on Why What Works Is The Wrong Question</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:dougj892@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="dougj8921" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="dougj892" class="iconfont icon-github" title="github"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Doug Johnson</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-1723694-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
