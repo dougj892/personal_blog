@@ -1,8 +1,7 @@
 ---
-title: "School versus household based surveys for collecting learning outcomes data"
+title: "An Introduction to Two-Phase Sampling and How it Could be Used to Collect Learning Outcomes Data"
 author: ''
 date: '2020-07-12'
-output: pdf_document
 bibliography: references.bib
 categories: []
 tags:

@@ -86,20 +86,6 @@
   </url>
   
   <url>
-    <loc>/tags/sampling/</loc>
-    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/post/school-versus-household-based-surveys-for-collecting-learning-outcomes-data/</loc>
-    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
     <lastmod>2020-05-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -143,6 +129,13 @@
   
   <url>
     <loc>/post/estimating-seroprevalence-with-data-from-an-imperfect-test-on-a-convenience-sample/</loc>
+    <lastmod>2020-05-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sampling/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

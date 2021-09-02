@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>India vs the World (education edition) - Doug Johnson</title>
+  <title>How India Compares to the World on Learning Outcomes - Doug Johnson</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -40,24 +40,24 @@ How well does India do according to the HLO dataset?" /><meta name="keywords" co
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="India vs the World (education edition)" />
+<meta property="og:title" content="How India Compares to the World on Learning Outcomes" />
 <meta property="og:description" content="Researchers at the World Bank recently released an excellent new dataset on learning outcomes by country.The dataset is here and a journal article describing the dataset is here. This is the first dataset on learning outcomes (rather than educational attainment) which includes most low income countries. (Hanushek and Woesmann created a cross country dataset on learning outcomes some time back but it only included 77 countries.)
 How well does India do according to the HLO dataset?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/2021-03-14-how-india-compares-to-the-world-on-education-performance/" />
 <meta property="article:published_time" content="2021-03-14T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-03-14T00:00:00+00:00" />
-<meta itemprop="name" content="India vs the World (education edition)">
+<meta itemprop="name" content="How India Compares to the World on Learning Outcomes">
 <meta itemprop="description" content="Researchers at the World Bank recently released an excellent new dataset on learning outcomes by country.The dataset is here and a journal article describing the dataset is here. This is the first dataset on learning outcomes (rather than educational attainment) which includes most low income countries. (Hanushek and Woesmann created a cross country dataset on learning outcomes some time back but it only included 77 countries.)
 How well does India do according to the HLO dataset?">
 <meta itemprop="datePublished" content="2021-03-14T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-03-14T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2205">
+<meta itemprop="wordCount" content="2267">
 
 
 
 <meta itemprop="keywords" content="education," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="India vs the World (education edition)"/>
+<meta name="twitter:title" content="How India Compares to the World on Learning Outcomes"/>
 <meta name="twitter:description" content="Researchers at the World Bank recently released an excellent new dataset on learning outcomes by country.The dataset is here and a journal article describing the dataset is here. This is the first dataset on learning outcomes (rather than educational attainment) which includes most low income countries. (Hanushek and Woesmann created a cross country dataset on learning outcomes some time back but it only included 77 countries.)
 How well does India do according to the HLO dataset?"/>
 
@@ -136,7 +136,7 @@ How well does India do according to the HLO dataset?"/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">India vs the World (education edition)</h1>
+      <h1 class="post-title">How India Compares to the World on Learning Outcomes</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-03-14 </span>
@@ -192,9 +192,10 @@ print(p)</code></pre>
 </div>
 <div id="comparing-india-to-other-countries-based-on-aser" class="section level1">
 <h1>Comparing India to other countries based on ASER</h1>
-<p>The HLO dataset is fantastic but to generate comparable data for so many countries the creators of the dataset had to rely on some heroic assumptions. The HLO value for India relies entirely on one assessment: the 2009 PISA conducted in Tamil Nadu and HP. Surprisingly, according to the IHDS 2012 survey, students in HP and Tamil Nadu are fairly representative of students overall. The code below shows that the population weighted average of the two states is right around the average for the country overall. (HP does really well but Tamil Nadu does surprisingly poorly. I am using IHDS here rather than ASER because ASER excluded rural areas and a very large share of Tamilians live in cities. Also, I am averaging ASER scores for all children 8-11 in the sample which is not a great idea but should at least give a rough sense of HP and TN’s relative performance.)</p>
+<p>The HLO dataset is fantastic but to generate comparable data for so many countries the creators of the dataset had to make some heroic assumptions. The HLO value for India relies entirely on one assessment: the 2009 PISA conducted in Tamil Nadu and HP. My first thought upon realizing this the 2009 PISA likely substantially over-estimates learning outcomes in India since Tamil Nadu is a relatively wealthy state and HP has a reputation for having a good education system. (HP was cited as an example of a high-performing state in the PROBE report.) Surprisingly, according to the IHDS 2012 survey, students in HP and Tamil Nadu are fairly representative of Indian students overall. The code below shows that the population weighted average of the two states is right around the average for the entire country. (HP does really well but Tamil Nadu does surprisingly poorly. I am using IHDS here rather than ASER because ASER excluded rural areas and a very large share of Tamilians live in cities. Also, I am averaging ASER scores for all children 8-11 in the sample which is not a great idea but should at least give a rough sense of HP and TN’s relative performance.)</p>
 <pre class="r"><code>library(haven); library(gt)</code></pre>
-<pre><code>## Warning: package &#39;gt&#39; was built under R version 4.0.4</code></pre>
+<pre><code>## Warning: package &#39;haven&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Warning: package &#39;gt&#39; was built under R version 4.0.5</code></pre>
 <pre class="r"><code>ihds_ind_dir &lt;- &quot;C:/Users/dougj/Documents/Data/IHDS/IHDS 2012/DS0001&quot;
 ind_file &lt;- file.path(ihds_ind_dir, &quot;36151-0001-Data.dta&quot;)
 
@@ -218,11 +219,12 @@ gt(tn_hp) %&gt;%
     columns = c(&quot;reading&quot;, &quot;math&quot;),
     decimals = 2
   )</code></pre>
+<div id="wagekbfxer" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lzvbiiyhgs .gt_table {
+#wagekbfxer .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -247,7 +249,7 @@ gt(tn_hp) %&gt;%
   border-left-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_heading {
+#wagekbfxer .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -259,7 +261,7 @@ gt(tn_hp) %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_title {
+#wagekbfxer .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -269,7 +271,7 @@ gt(tn_hp) %&gt;%
   border-bottom-width: 0;
 }
 
-#lzvbiiyhgs .gt_subtitle {
+#wagekbfxer .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -279,13 +281,13 @@ gt(tn_hp) %&gt;%
   border-top-width: 0;
 }
 
-#lzvbiiyhgs .gt_bottom_border {
+#wagekbfxer .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_col_headings {
+#wagekbfxer .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -300,7 +302,7 @@ gt(tn_hp) %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_col_heading {
+#wagekbfxer .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -320,7 +322,7 @@ gt(tn_hp) %&gt;%
   overflow-x: hidden;
 }
 
-#lzvbiiyhgs .gt_column_spanner_outer {
+#wagekbfxer .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -332,15 +334,15 @@ gt(tn_hp) %&gt;%
   padding-right: 4px;
 }
 
-#lzvbiiyhgs .gt_column_spanner_outer:first-child {
+#wagekbfxer .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lzvbiiyhgs .gt_column_spanner_outer:last-child {
+#wagekbfxer .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lzvbiiyhgs .gt_column_spanner {
+#wagekbfxer .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -352,7 +354,7 @@ gt(tn_hp) %&gt;%
   width: 100%;
 }
 
-#lzvbiiyhgs .gt_group_heading {
+#wagekbfxer .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -374,7 +376,7 @@ gt(tn_hp) %&gt;%
   vertical-align: middle;
 }
 
-#lzvbiiyhgs .gt_empty_group_heading {
+#wagekbfxer .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -389,15 +391,15 @@ gt(tn_hp) %&gt;%
   vertical-align: middle;
 }
 
-#lzvbiiyhgs .gt_from_md > :first-child {
+#wagekbfxer .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lzvbiiyhgs .gt_from_md > :last-child {
+#wagekbfxer .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lzvbiiyhgs .gt_row {
+#wagekbfxer .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -416,7 +418,7 @@ gt(tn_hp) %&gt;%
   overflow-x: hidden;
 }
 
-#lzvbiiyhgs .gt_stub {
+#wagekbfxer .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -428,7 +430,7 @@ gt(tn_hp) %&gt;%
   padding-left: 12px;
 }
 
-#lzvbiiyhgs .gt_summary_row {
+#wagekbfxer .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -438,7 +440,7 @@ gt(tn_hp) %&gt;%
   padding-right: 5px;
 }
 
-#lzvbiiyhgs .gt_first_summary_row {
+#wagekbfxer .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -448,7 +450,7 @@ gt(tn_hp) %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_grand_summary_row {
+#wagekbfxer .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -458,7 +460,7 @@ gt(tn_hp) %&gt;%
   padding-right: 5px;
 }
 
-#lzvbiiyhgs .gt_first_grand_summary_row {
+#wagekbfxer .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -468,11 +470,11 @@ gt(tn_hp) %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_striped {
+#wagekbfxer .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lzvbiiyhgs .gt_table_body {
+#wagekbfxer .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -481,7 +483,7 @@ gt(tn_hp) %&gt;%
   border-bottom-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_footnotes {
+#wagekbfxer .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -495,13 +497,13 @@ gt(tn_hp) %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_footnote {
+#wagekbfxer .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lzvbiiyhgs .gt_sourcenotes {
+#wagekbfxer .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -515,46 +517,47 @@ gt(tn_hp) %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#lzvbiiyhgs .gt_sourcenote {
+#wagekbfxer .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lzvbiiyhgs .gt_left {
+#wagekbfxer .gt_left {
   text-align: left;
 }
 
-#lzvbiiyhgs .gt_center {
+#wagekbfxer .gt_center {
   text-align: center;
 }
 
-#lzvbiiyhgs .gt_right {
+#wagekbfxer .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lzvbiiyhgs .gt_font_normal {
+#wagekbfxer .gt_font_normal {
   font-weight: normal;
 }
 
-#lzvbiiyhgs .gt_font_bold {
+#wagekbfxer .gt_font_bold {
   font-weight: bold;
 }
 
-#lzvbiiyhgs .gt_font_italic {
+#wagekbfxer .gt_font_italic {
   font-style: italic;
 }
 
-#lzvbiiyhgs .gt_super {
+#wagekbfxer .gt_super {
   font-size: 65%;
 }
 
-#lzvbiiyhgs .gt_footnote_marks {
+#wagekbfxer .gt_footnote_marks {
   font-style: italic;
+  font-weight: normal;
   font-size: 65%;
 }
 </style>
-<div id="lzvbiiyhgs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -564,21 +567,18 @@ gt(tn_hp) %&gt;%
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr>
-      <td class="gt_row gt_left">All other states</td>
-      <td class="gt_row gt_right">2.45</td>
-      <td class="gt_row gt_right">1.44</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_left">HP and TN</td>
-      <td class="gt_row gt_right">2.45</td>
-      <td class="gt_row gt_right">1.59</td>
-    </tr>
+    <tr><td class="gt_row gt_left">All other states</td>
+<td class="gt_row gt_right">2.45</td>
+<td class="gt_row gt_right">1.44</td></tr>
+    <tr><td class="gt_row gt_left">HP and TN</td>
+<td class="gt_row gt_right">2.45</td>
+<td class="gt_row gt_right">1.59</td></tr>
   </tbody>
   
   
-</table></div>
-<p>While Tamil Nadu and HP, taken together, are not obvious outliers when it comes to education generating a data point for the country as a whole from a single survey conducted more than a decade ago in only two states is not ideal.</p>
+</table>
+</div>
+<p>While Tamil Nadu and HP, taken together, are not obvious outliers when it comes to education generating a data point for the country as a whole from a single survey conducted more than a decade ago in only two states is still not ideal.</p>
 <p>Another, in my opinion better, approach to comparing India to other countries on learning outcomes is to use data from ASER and other assessments inspired by ASER. Several countries around the world have completed assessments very similar to ASER. This <a href="http://img.asercentre.org/docs/Impact/ASER%20Abroad/PalNetworkMay2017.pdf">webpage</a> contains stats from ASER and other ASER-like assessments conducted in Pakistan, Kenya, Uganda, Tanzania, Mali, Senegal, Mexico, and Nigeria in 2015 or 2016 on the share of 5th grade children who can read a grade 2 text. (It also has figures for numeracy, but they aren’t really comparable across countries. For more on this very cool effort, check out the <a href="https://palnetwork.org/">People’s Action for Learning Network</a>). The advantages of using ASER-like assessments to compare countries are that:</p>
 <ol style="list-style-type: decimal">
 <li><p>In contrast to PISA and most other learning outcomes assessments, ASER-like assessments use household sampling to select children. For countries like India with high drop-out, low attendance, and incomplete lists of private schools, children selected using household sampling are likely more representative of the total population.</p></li>
