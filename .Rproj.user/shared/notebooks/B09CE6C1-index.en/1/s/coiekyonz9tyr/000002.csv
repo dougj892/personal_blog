@@ -1,0 +1,8 @@
+"0","library(gt)"
+"0","df2 <- tribble("
+"0","  ~Figure, ~Karnataka, ~India, ~Difference"
+"0","  ""% enrolled children in hh with smartphone"",68.6,61.8,6.8,"
+"2","Error: unexpected string constant in:
+""  ~Figure, ~Karnataka, ~India, ~Difference
+  ""% enrolled children in hh with smartphone""""
+"

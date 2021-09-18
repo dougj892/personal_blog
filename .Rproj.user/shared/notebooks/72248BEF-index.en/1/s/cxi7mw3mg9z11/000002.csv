@@ -1,0 +1,6 @@
+"0","ggplot(results_df, aes(x = reorder(state_abbr, `2013`), "
+"0","                       y= `2013`,"
+"0","                       fill = factor(ifelse(state_abbr==""HR"",""Highlighted"",""Normal"")))) + "
+"0","  scale_fill_manual(name = ""area"", values=c(""red"",""grey50""), guide= FALSE) +"
+"0","  geom_bar(stat = ""identity"") +"
+"0","  labs(title = ""Estimated effect in 2013"", x = ""State"")"

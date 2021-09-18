@@ -1,0 +1,12 @@
+"0","aser <- read_csv(""https://raw.githubusercontent.com/dougj892/public-datasets/master/ASER%20trends%20over%20time.csv"")
+"
+"2","
+[36m--[39m [1m[1mColumn specification[1m[22m [36m-------------------------------------------------------------------------------[39m
+cols(
+  .default = col_double(),
+  State = [31mcol_character()[39m,
+  state_abbr = [31mcol_character()[39m
+)
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m for the full column specifications.
+
+"

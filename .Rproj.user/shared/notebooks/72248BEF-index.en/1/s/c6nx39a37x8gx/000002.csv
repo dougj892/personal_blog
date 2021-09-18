@@ -1,0 +1,8 @@
+"0","# Generate dataset of deltas from 2012 to 2014 "
+"0","diffs <- aser %>% filter((year == 2012) | (year == 2014)) %>% group_by(State) %>%"
+"0","  mutate_at(vars(starts_with(""std"")), ~.x-lag(.x, order_by = year)) %>% "
+"0","  filter(year == 2014) %>% "
+"0","  ungroup()"
+"0",""
+"0","diffs_long <- diffs %>% pivot_longer(starts_with(""std""), names_to = ""temp"", values_to = ""diff"") %>% "
+"0","  mutate(class = str_sub(temp, 4,4), subject = str_extract(temp, ""(math|read)""))"
